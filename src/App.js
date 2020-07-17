@@ -14,8 +14,8 @@ function App() {
       <div className="empty-block"></div>
       <div className="feed-row">
       <CategoryList/>
-      <Feed />
-      {/* <Profile/> */}
+      {/* <Feed /> */}
+      <Profile/>
       <CompanyList/>
       </div>
     </div>
