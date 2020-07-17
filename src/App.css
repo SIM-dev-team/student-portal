@@ -14,7 +14,7 @@
 .logo {
     width: 20%;
     color: white;
-    padding-left: 10%;
+    padding-left: 9.5%;
 }
 
 .nav-items {
@@ -59,4 +59,26 @@
     border-radius: 20px;
     padding: 4px 10px;
     width: 40%;
+}
+
+.feed-content {
+    height: 100px
+}
+
+.company-section {
+    position: fixed !important;
+    right: 2%;
+    border: 1px solid black;
+    width: 20%;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.category-section {
+    position: fixed !important;
+    left: 2%;
+    border: 1px solid black;
+    width: 20%;
+    height: 90%;
+    overflow-y: auto;
 }
