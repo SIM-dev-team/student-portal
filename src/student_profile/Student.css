@@ -1,0 +1,136 @@
+/*-----------------------------studentheader---------------------------*/
+.student_header{
+  width: 100%;
+
+  border-bottom: 1px solid rgb(155,155,155);
+  
+}
+
+.edit_btn_position {
+    margin-left: 78em;
+    margin-top: 5em;
+    
+  }
+
+  .edit_profile {
+    border-radius: 10px;
+    background-color: rgb(54, 192, 247);
+    border-radius: 10px;
+    border-style: none;
+    color: #fff;
+    width: 100px;
+    height: 25px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-top: 0;
+    margin-right: 0;
+    position: absolute;
+    top: 5em;
+    right: 22em;
+
+  }
+  .edit_profile:hover {
+    background-color: rgb(33, 153, 209);
+  }
+
+  .user_details{
+    align-content: center;
+    margin-top: 35px;
+    vertical-align: 5px;
+  }
+
+  .student_image{
+    margin: 10px;
+    width: 100px;
+
+  }
+
+  .button_settings{
+    padding: 0.8em
+  }
+
+  .button_link{
+    border-radius: 10px;
+    background-color: rgb(54, 192, 247);
+    border-radius: 10px;
+    border-style: none;
+    color: #fff;
+    width: 120px;
+    height: 25px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin: 2px 10px;
+    
+  }
+
+  .button_link:hover {
+    background-color: rgb(33, 153, 209);
+  }
+
+  .button_link:active{
+    background-color: rgb(8, 57, 97);
+  }
+
+  .bullet_prefer{
+    cursor: pointer;
+    position: relative;
+    
+    width: 20px;
+    height: 20px;
+    margin-right: 0px;
+    float: left;
+    margin-top: 0px;
+    margin-left: 3px;
+  }
+
+  /*-------------------------------cv----------------------------------------*/
+
+  .my_cv{
+    float: left;
+    position: absolute;
+    padding-top: 20px;
+    top: 35%;
+    left: 28%;
+  }
+
+  
+  .card{
+    float: left;
+    position: absolute;
+    padding-top: 30px;
+    top: 35%;
+    left: 25%;
+    right: 25%;
+  }
+
+  /*-----------------------------------------card-------------------------------*/
+  .student_card{
+    position: absolute;
+    top: 38%
+  }
+
+  .company_information{
+    width: 100%;
+  }
+
+  .company_image{
+    width: 25%;
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+
+  .company_details{
+    width: 50%;
+    margin-left: 30px;
+    padding-left: 30px;
+    align-content: center;
+  }
+
+  .company_buttons{
+    width: 25%;
+    float: right;
+    margin-left: 120px;
+    padding-left: 120px;
+  }
