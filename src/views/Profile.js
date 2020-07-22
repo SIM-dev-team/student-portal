@@ -7,7 +7,7 @@ import Saved from '../student_profile/saved'
 
 function Profile() {
     return(
-        <div>
+        <div className = "profile">
             <Header/>
             <Saved />
         </div>

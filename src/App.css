@@ -74,6 +74,7 @@
     overflow-y: auto;
 }
 
+
 .category-section {
     position: fixed !important;
     left: 2%;
@@ -81,4 +82,8 @@
     width: 20%;
     height: 90%;
     overflow-y: auto;
+}
+
+.profile{
+    width:55%;
 }

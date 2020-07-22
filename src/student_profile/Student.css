@@ -1,16 +1,15 @@
 /*-----------------------------studentheader---------------------------*/
 .student_header{
-  width: 100%;
-
-  border-bottom: 1px solid rgb(155,155,155);
+  width: 52%;
+  align-items: center;
+  position: fixed;
+  border-bottom: 1px solid black;
+  margin: 0px 20px;
+  padding: 0px 20px;
+  
   
 }
 
-.edit_btn_position {
-    margin-left: 78em;
-    margin-top: 5em;
-    
-  }
 
   .edit_profile {
     border-radius: 10px;
@@ -26,8 +25,8 @@
     margin-top: 0;
     margin-right: 0;
     position: absolute;
-    top: 5em;
-    right: 22em;
+    top: 0em;
+    right: 0em;
 
   }
   .edit_profile:hover {
@@ -37,11 +36,11 @@
   .user_details{
     align-content: center;
     margin-top: 35px;
-    vertical-align: 5px;
+    
   }
 
   .student_image{
-    margin: 10px;
+    margin: 10px 100px;
     width: 100px;
 
   }
@@ -105,32 +104,56 @@
     right: 25%;
   }
 
-  /*-----------------------------------------card-------------------------------*/
+  /*-----------------------------------------saved-------------------------------*/
   .student_card{
-    position: absolute;
-    top: 38%
+    position: relative;
+    top: 50%;
+    left: 3%;
+    padding: 5px 10px ;
+    
   }
 
   .company_information{
     width: 100%;
+
   }
 
   .company_image{
-    width: 25%;
+    width: 20%;
     margin-left: 15px;
     padding-left: 15px;
   }
 
   .company_details{
-    width: 50%;
+    width: 40%;
     margin-left: 30px;
     padding-left: 30px;
     align-content: center;
   }
 
   .company_buttons{
-    width: 25%;
+    width: 20%;
     float: right;
-    margin-left: 120px;
-    padding-left: 120px;
+    margin-left: 70px;
+    padding-left: 70px;
   }
+
+  .scroller{
+    position: fixed;
+    top: 35%;
+    height: auto;
+  }
+
+  .advert_card{
+    position: fixed;
+    overflow-y:scroll;
+    top: 40%;
+    height: 60%;
+  }
+
+  .advert_card::-webkit-scrollbar {
+    display: none;
+}
+
+
+  
