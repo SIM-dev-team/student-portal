@@ -9,14 +9,12 @@ class studentheader extends Component {
     render(){
 
         return (
-            <div className = "student_header ">
-                <div className = "edit_button_position">
+            <div className = "student_header container">
+                <div className = "user_details row">
                     <button className = "edit_profile">
                         Edit Profile
                     </button>
-                </div>
-    
-                <div className = "user_details row">
+                    
                     <div className = "student_image">
                        <img src = {profile} alt = "Student Profile" style={{ height:'100px' , width:'100px' , borderRadius:'50px' }}/>
                     </div>
