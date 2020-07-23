@@ -8,7 +8,7 @@
 
 .navbar {
     width: 100%;
-    height: 4rem;
+    height: 3rem;
     background-color: rgb(19, 63, 80);
     position: fixed !important;
     top: 0;
@@ -149,6 +149,7 @@
 
 .company-list-item-name {
     font-weight: 600;
+    color: rgb(59, 59, 59);
 }
 
 .company-list-top-bar {
@@ -218,12 +219,10 @@
     display: none;
 }
 
-
 .category-section::-webkit-scrollbar {
     display: none;
 }
 
 .profile {
     width: 55%;
-
 }
