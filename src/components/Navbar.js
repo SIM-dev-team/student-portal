@@ -9,12 +9,12 @@ function Navbar() {
             <div className="searchbar">search</div>
             <div className="nav-items">
                 <ul className="nav-list">
-                    {/* <Link to="/"> */}
+                    <Link to="/">
                         <li>Home</li>
-                    {/* </Link> */}
-                    {/* <Link to="/profile"> */}
+                    </Link>
+                    <Link to="/profile">
                         <li>Profile</li>
-                    {/* </Link> */}
+                    </Link>
                     
                 </ul>
             </div>
