@@ -24,7 +24,8 @@ class Saved extends Component {
                         </div>
                         <div className = "company_details">
                             <h5> {ad.name}</h5>
-                            <a>{ad.email}</a>
+                            <a href>{ad.email}</a>
+
                         </div>
                         <div className = "company_buttons ">
                             <button className = "button_link">
