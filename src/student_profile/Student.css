@@ -1,0 +1,159 @@
+/*-----------------------------studentheader---------------------------*/
+.student_header{
+  width: 52%;
+  align-items: center;
+  position: fixed;
+  border-bottom: 1px solid black;
+  margin: 0px 20px;
+  padding: 0px 20px;
+  
+  
+}
+
+
+  .edit_profile {
+    border-radius: 10px;
+    background-color: rgb(54, 192, 247);
+    border-radius: 10px;
+    border-style: none;
+    color: #fff;
+    width: 100px;
+    height: 25px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-top: 0;
+    margin-right: 0;
+    position: absolute;
+    top: 0em;
+    right: 0em;
+
+  }
+  .edit_profile:hover {
+    background-color: rgb(33, 153, 209);
+  }
+
+  .user_details{
+    align-content: center;
+    margin-top: 35px;
+    
+  }
+
+  .student_image{
+    margin: 10px 100px;
+    width: 100px;
+
+  }
+
+  .button_settings{
+    padding: 0.8em
+  }
+
+  .button_link{
+    border-radius: 10px;
+    background-color: rgb(54, 192, 247);
+    border-radius: 10px;
+    border-style: none;
+    color: #fff;
+    width: 120px;
+    height: 25px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin: 2px 10px;
+    
+  }
+
+  .button_link:hover {
+    background-color: rgb(33, 153, 209);
+  }
+
+  .button_link:active{
+    background-color: rgb(8, 57, 97);
+  }
+
+  .bullet_prefer{
+    cursor: pointer;
+    position: relative;
+    
+    width: 20px;
+    height: 20px;
+    margin-right: 0px;
+    float: left;
+    margin-top: 0px;
+    margin-left: 3px;
+  }
+
+  /*-------------------------------cv----------------------------------------*/
+
+  .my_cv{
+    float: left;
+    position: absolute;
+    padding-top: 20px;
+    top: 35%;
+    left: 28%;
+  }
+
+  
+  .card{
+    float: left;
+    position: absolute;
+    padding-top: 30px;
+    top: 35%;
+    left: 25%;
+    right: 25%;
+  }
+
+  /*-----------------------------------------saved-------------------------------*/
+  .student_card{
+    position: relative;
+    top: 50%;
+    left: 3%;
+    padding: 5px 10px ;
+    
+  }
+
+  .company_information{
+    width: 100%;
+
+  }
+
+  .company_image{
+    width: 20%;
+    margin-left: 15px;
+    padding-left: 15px;
+  }
+
+  .company_details{
+    width: 40%;
+    margin-left: 30px;
+    padding-left: 30px;
+    align-content: center;
+  }
+
+  .company_buttons{
+    width: 20%;
+    float: right;
+    margin-left: 70px;
+    padding-left: 70px;
+  }
+
+  .scroller{
+    position: fixed;
+    top: 35%;
+    height: auto;
+  }
+
+  .advert_card{
+    position: fixed;
+    overflow-y:scroll;
+    top: 40%;
+    height: 60%;
+  }
+
+  .advert_card::-webkit-scrollbar {
+    display: none;
+}
+
+
+  
