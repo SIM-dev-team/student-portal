@@ -55,5 +55,21 @@ export const ADVERTS = [
               image: '../images/company.png',
               jobrole: 'Business Analyst',
               description:'Description goes here.'},
+
+         {
+              id: 7,
+              name:'Codegun',
+              email:'www.codegun@gmail.com',
+              image: '../images/company.png',
+              jobrole: 'Business Analyst',
+              description:'Description goes here.'},
+
+         {
+              id: 8,
+              name:'Zone',
+              email:'www.zone@gmail.com',
+              image: '../images/company.png',
+              jobrole: 'Business Analyst',
+              description:'Description goes here.'},
   
 ];
