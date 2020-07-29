@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Student.css'
 import profile from '../images/profile.png'
@@ -23,15 +24,21 @@ class studentheader extends Component {
                             <h4> KASUN KARUNANAYAKE </h4>
                         </div>
                         <div className = " row button_settings">
+                            <Link to="/Mycv">
                             <button className = "button_link">
                                 My CV
                             </button>
+                            </Link>
+                            <Link to="/Saved">
                             <button className = "button_link">
                                 Saved
                             </button>
+                            </Link>
+                            <Link to="/Notification">
                             <button className = "button_link">
                                 Notifications
                             </button>
+                            </Link>
                         </div>
                         <div className = "selection_advert row">
                             <h6 style = {{ margin:'10px 15px' ,  textDecoration: 'underline'}}>SELECTED ADVERTS</h6>

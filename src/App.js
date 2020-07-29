@@ -9,6 +9,7 @@ import {BrowserRouter as Router , Switch , Route}  from 'react-router-dom';
 import Company from './views/Company';
 import Category from './views/Category';
 
+
 function App() {
   return (
     <div className="App">
