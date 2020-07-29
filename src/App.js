@@ -10,6 +10,7 @@ import Company from './views/Company';
 import Category from './views/Category';
 import Advert from './views/Advert';
 
+
 function App() {
   return (
     <div className="App">
