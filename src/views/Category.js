@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Company({match}) {
+function Category({match}) {
     return (
         <React.Fragment>
             <div className="feed-home" style={{minHeight:"90vh"}}>
@@ -10,4 +10,4 @@ function Company({match}) {
     )
 }
 
-export default Company
+export default Category
