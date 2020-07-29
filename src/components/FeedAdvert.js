@@ -1,29 +1,30 @@
 import React from 'react'
 import '../App.css'
+import { Link } from 'react-router-dom'
 
-function FeedAdvert() {
+function FeedAdvert(params) {
     return (
         <div>
            <div className="feed-content">
                 <div className="row short-advert-top-row">
                     <div className="short-advert-top-row-left">
                     <div className="short-advert-company-logo">
-                        logo
+                        {params.advert.comp_logo}
                     </div>
                     <div className="short-advert-company-details">
-                        <div className="short-advert-company-name">comapany name</div>
-                        <div className="short-advert-company-website">comp website</div>
+                        <div className="short-advert-company-name">{params.advert.comp_name}</div>
+                        <div className="short-advert-company-website">{params.advert.comp_website}</div>
                     </div>
                     </div>
                     <div className="short-advert-top-row-right">
-                        <button>View more</button>
+                        <Link to={`/advert/${params.advert.id}`}><button>View more</button></Link>
                         <button>Save</button>
                     </div>
                 </div>
                 <hr/>
-                <div className="short-advert-posisiton-name">Position</div>
+                <div className="short-advert-posisiton-name">{params.advert.internship_position}</div>
             <div className="short-advert-posisiton-desc-title">Short Description about position</div>
-            <div className="short-advert-position-decs-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, alias iure inventore consectetur ullam eligendi odit deserunt totam veritatis molestias aliquam qui illum quam dolorum atque itaque fuga sit minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate vero optio numquam explicabo! Amet aliquam veniam</div>
+            <div className="short-advert-position-decs-content">{params.advert.description}</div>
            </div>
         </div>
     )
