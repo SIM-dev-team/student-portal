@@ -92,13 +92,72 @@
 /*======================================== feed advert css ==================================================*/
 
 .feed-content {
-    height: 100px;
+    height: auto;
     margin-bottom: 10px;
+    padding: 20px 30px;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     -webkit-box-shadow: 0px 0px 50px -3px rgb(223, 223, 223);
     -moz-box-shadow: 0px 0px 50px -3px rgba(173, 170, 173, 1);
     box-shadow: 0px 0px 50px -3px rgb(212, 212, 212);
+}
+
+.short-advert-top-row {
+    justify-content: space-between;
+}
+
+.short-advert-top-row-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.short-advert-top-row-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.short-advert-top-row-right button {
+    border: none;
+    margin: 5px 0;
+    background-color: rgb(24, 187, 216);
+    box-shadow: 1px 1px 1px gray;
+    color: white;
+    border-radius: 2px;
+    padding: 0 20px;
+}
+
+.short-advert-company-logo {
+    background-color: rgb(125, 155, 155);
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.short-advert-company-details {
+    padding: 0 20px;
+    padding-top: 5px;
+}
+
+.short-advert-company-name {
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.short-advert-company-website {
+    color: rgb(3, 177, 207);
+}
+
+.short-advert-posisiton-name {
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+.short-advert-posisiton-desc-title {
+    padding-bottom: 10px;
+    font-weight: 500;
 }
 
 
@@ -234,10 +293,25 @@
 .category-section {
     position: fixed !important;
     left: 3%;
-    border: 1px solid black;
     width: 20%;
     height: 90%;
     overflow-y: auto;
+}
+
+.category-list-item {
+    width: 100%;
+    padding: 10px;
+    padding-left: 2%;
+    margin: auto !important;
+}
+
+.category-list-item-name {
+    width: 100%;
+    padding: 5px 10px;
+    font-weight: 600;
+    background-color: rgb(212, 211, 211);
+    border-radius: 5px;
+    color: rgb(59, 59, 59);
 }
 
 .category-section::-webkit-scrollbar {
