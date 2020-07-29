@@ -8,12 +8,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function Profile() {
     return(
-        <div className = "profile">
+        <div className = "profile" style={{minHeight:"90vh"}} >
             <Header/>
             <Saved />
-        </div>
-            
-        
+        </div>        
     )
 }
 
