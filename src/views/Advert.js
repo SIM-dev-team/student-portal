@@ -1,5 +1,6 @@
 import React,{useState , useEffect} from 'react'
 import '../App.css';
+import axios from 'axios';
 
 const ad = {   
     id : 1,
@@ -17,8 +18,14 @@ function Advert({match}) {
     const  [advert , setAdvert] = useState({});
 
     useEffect(()=>{
-        setAdvert(ad);
-    },[]);
+        axios
+          .get("http://localhost:5000/advert/get/" + match.params.id)
+          .then(res => {
+              console.log(res.data)
+              setAdvert(res.data);
+          })
+          .catch(err => console.error(err));
+    },[match.params.id]);
 
     return (
         <React.Fragment>
@@ -27,7 +34,9 @@ function Advert({match}) {
                     <div className="row advert-top">
                         <div className="advert-top-left">
                             <div className="row">
-                            <div className="adevrt-company-logo">{advert.comp_logo}</div>
+                            <div>
+                                <img src={advert.profile_pic_url} alt="logo" className="adevrt-company-logo"/>
+                                </div>
                             <div className="advert-left-details">
                                 <div className="advert-company-name">{advert.comp_name}</div>
                                 <div className="advert-company-website">{advert.comp_website}</div>
@@ -40,9 +49,15 @@ function Advert({match}) {
                         </div>
                     </div>
                     <div className="advert-internship-position-title">{advert.intership_position}</div>
-                    <div className="advert-internship-position-desc">{advert.description}</div>
-                    <div className="advert-image">
-                        image
+                    <div className="advert-internship-position-desc">{advert.position_desc}</div>
+                    <div className="advert-internship-position-desc">{advert.job_desc}</div>
+                    <div className="advert-internship-position-desc">{advert.knowledge_skills}</div>
+                    <div className="row">
+                    <div className="advert-internship-position-desc"><span className="applicants">No of positions :</span>{advert.no_of_positions}</div>
+                    <div className="advert-internship-position-desc"><span className="applicants">No of applicants :</span>{advert.no_of_applicants}</div>
+                    </div>
+                    <div>
+                        <img src={advert.attachment_url} className="advert-image" alt="attachment"/>
                     </div>
                 </div>
             </div>
