@@ -1,5 +1,6 @@
 import React , {useState , useEffect} from 'react'
 import CompanyListItem from './CompanyListItem';
+import axios  from 'axios'
 import '../App.css';
 
 const compList = [
@@ -71,12 +72,19 @@ function CompanyList() {
     const [filteredCountriesList , setFilteredCountriesList] = useState([]);
 
     useEffect(()=>{
-        setCompanyList(compList);
+        axios
+          .get("http://localhost:5000/company/getAll")
+          .then(res =>{
+            //   console.log(res.data)
+              setCompanyList(res.data);
+          })
+          .catch(err => console.error(err));
+        
     },[])
 
     useEffect(()=>{
         const filter = companyList.filter(company => {
-          return company.name.toLowerCase().includes(search.toLowerCase());
+          return company.comp_name.toLowerCase().includes(search.toLowerCase());
         })
         setFilteredCountriesList(filter);
     },[search , companyList])
@@ -97,7 +105,7 @@ function CompanyList() {
             </div>
             {filteredCountriesList.map((company) =>{
                 return(
-                    <CompanyListItem key={company.id} company={company} />
+                    <CompanyListItem key={company.comp_id} company={company} />
                 );
             })}
         </div>
