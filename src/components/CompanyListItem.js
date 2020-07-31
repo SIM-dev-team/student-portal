@@ -6,21 +6,23 @@ import 'tippy.js/dist/tippy.css';
 const CompanyTooltip = (params) =>{
     return(
         <div className="company-tool-tip"> Compant tool tip
-        <div>{params.desc}</div>
+        <div>{params.company.comp_name}</div>
+        <div>{params.company.comp_website}</div>
+        <div>{params.company.description}</div>
         </div>
     )
 }
 function CompanyListItem(params) {
     return (
         <div>
-            <Tippy content={<CompanyTooltip desc={params.company.description}/>} placement='left'>
-                <Link to ={`/company/${params.company.id}`}>
+            <Tippy content={<CompanyTooltip company={params.company}/>} placement='left'>
+                <Link to ={`/company/${params.company.comp_id}`}>
                 <div className="row company-list-item">
-                    <div className="company-list-item-logo">
-                        {params.company.logo}
+                    <div >
+                        <img src={params.company.profile_pic_url} className="company-list-item-logo" alt="logo"/>
                     </div>
                     <div className="company-list-item-name">
-                        {params.company.name}
+                        {params.company.comp_name}
                     </div>
                 </div>
                 </Link>

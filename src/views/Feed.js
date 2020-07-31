@@ -1,5 +1,6 @@
 import React, {useState , useEffect} from 'react'
 import FeedAdvert from '../components/FeedAdvert'
+import axios from 'axios'
 
 const adList = [
     {   
@@ -50,15 +51,20 @@ function Feed() {
     const [advertList , setAdvertList] = useState([]);
 
     useEffect(()=>{
-        setAdvertList(adList);
+        axios
+          .get("http://localhost:5000/advert/getAll")
+          .then(res => {
+            setAdvertList(res.data);
+          })
+          .catch(err => console.error(err));
     },[])
     return (
         <React.Fragment>
-            <div className="feed-home" style={{minheight:"91vh"}}>
+            <div className="feed-home" style={{height:"91vh"}}>
                 <div className="feed-body">
                     {advertList.map((advert) =>{
                         return(
-                            <FeedAdvert key={advert.id} advert={advert} />
+                            <FeedAdvert key={advert.ad_id} advert={advert} />
                         );
                     })}
                 </div>
