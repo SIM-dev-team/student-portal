@@ -1,21 +1,28 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
+import profile from '../images/profile.png'
+import {EditModal} from './editModal'
 import 'bootstrap/dist/css/bootstrap.css';
 import './Student.css'
-import profile from '../images/profile.png'
 
 
 class studentheader extends Component {
 
-    render(){
+    constructor(props){
+        super(props);
+        this.state ={editModalShow : false}
+    }
 
+
+    render(){
+        let editModalClose =() => this.setState({editModalShow: false });
         return (
+            <>
             <div className = "student_header container">
                 <div className = "user_details row">
-                    <button className = "edit_profile">
+                    <button className = "edit_profile" onClick={()=> this.setState({editModalShow: true})}>
                         Edit Profile
-                    </button>
-                    
+                    </button> 
                     <div className = "student_image">
                        <img src = {profile} alt = "Student Profile" style={{ height:'100px' , width:'100px' , borderRadius:'50px' }}/>
                     </div>
@@ -53,8 +60,14 @@ class studentheader extends Component {
                             </div>
                         </div>
                     </div>
+                    
                 </div >
             </div>
+            <EditModal
+            show = {this.state.editModalShow}
+            onHide = {editModalClose}
+            />
+            </>
         )
     }
 

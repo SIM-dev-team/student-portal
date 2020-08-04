@@ -24,7 +24,7 @@ class Saved extends Component {
                         </div>
                         <div className = "company_details">
                             <h5> {ad.name}</h5>
-                            <a href>{ad.email}</a>
+                            <a href = "">{ad.email}</a>
 
                         </div>
                         <div className = "company_buttons ">
@@ -48,6 +48,7 @@ class Saved extends Component {
         );
 
         return (
+            <React.Fragment>
             <div className="scroller container">
                 <h5>Saved Adverts</h5>
                 <div className="advert_card row ">
@@ -55,6 +56,7 @@ class Saved extends Component {
                    
                 </div>
             </div>
+            </React.Fragment>
         );
     }
 }
