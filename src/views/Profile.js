@@ -10,7 +10,7 @@ import Notification from '../student_profile/notification'
 function Profile() {
     return(
         <React.Fragment>
-        <div className = "profile">
+        <div className = "profile" style={{minHeight:"91vh"}}>
             <Router>
                 <Header/>
                 

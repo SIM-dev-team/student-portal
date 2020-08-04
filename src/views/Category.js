@@ -81,7 +81,7 @@ function Category({match}) {
 
     return (
         <React.Fragment>
-            <div className="feed-home" style={{minHeight:"90vh"}}>
+            <div className="feed-home" style={{minHeight:"91vh"}}>
             <div className="category-name">
                         {categoryName}
                     </div> 
