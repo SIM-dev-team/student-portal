@@ -4,14 +4,6 @@ import { useEffect } from 'react';
 import FeedAdvert from '../components/FeedAdvert';
 import axios from 'axios';
 
-// const comp = {   
-//     id : 1,
-//     comp_name : 'A company',
-//     comp_website : 'www.testwebsite.com',
-//     comp_logo : 'A',
-//     pic_url : '' ,
-//     description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-// }
 
 // const adList = [
 //     {   
@@ -57,15 +49,14 @@ import axios from 'axios';
    
 // ]
 
-function Company({match}) {
-
-    const [company , setcompany] = useState({});
+function Category({match}) {
     const [advertList , setAdvertList] = useState([]);
+    const [categoryName , setCategoryName] = useState(null);
     const [isAdvertsLoaded , setIsAdvertsLoaded] = useState(false);
 
     useEffect(()=>{
         axios
-          .get("http://localhost:5000/advert/getAdvertsByCompanyId/" + match.params.id)
+          .get("http://localhost:5000/advert/getAdvertsByCategory/" + match.params.id)
           .then(res => {
             //   console.log(res.data);
               setAdvertList(res.data);
@@ -79,30 +70,22 @@ function Company({match}) {
 
     useEffect(()=>{
         axios
-          .get("http://localhost:5000/company/getCompany/" + match.params.id)
+          .get("http://localhost:5000/advert/getCategory/" + match.params.id)
           .then(res => {
             //   console.log(res.data);
-              setcompany(res.data);
-            })
+              setCategoryName(res.data.cat_name);
+          })
           .catch(err => console.error(err));
-    },[match.params.id]);
+    },[match.params.id])
+
 
     return (
         <React.Fragment>
             <div className="feed-home" style={{minHeight:"90vh"}}>
-                <div className="feed-content">
-                    <div className="row company-data">
-                        <div className="col-md-3 compant-logo">
-                            <img src={company.profile_pic_url} className="company-logo" alt="logo"/>
-                        </div>
-                        <div className="col company-description-box">
-                        <div className="company-name">{company.comp_name}</div>
-                        <div className="company-description">{company.description}</div>
-                        <div className="company-website">{company.comp_website}</div>
-                        </div>
+            <div className="category-name">
+                        {categoryName}
                     </div> 
-                </div>
-                <div className="no-adverts-to-show" hidden={isAdvertsLoaded && advertList.length !== 0}>No Adverts to show</div>
+                    <div className="no-adverts-to-show" hidden={isAdvertsLoaded && advertList.length !== 0}>No Adverts to show</div>
                 {advertList.map((advert) =>{
                         return(
                             <FeedAdvert key={advert.ad_id} advert={advert} />
@@ -113,4 +96,4 @@ function Company({match}) {
     )
 }
 
-export default Company
+export default Category

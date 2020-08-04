@@ -7,6 +7,8 @@ import CompanyList from './components/CompanyList';
 import Profile from './views/Profile';
 import {BrowserRouter as Router , Switch , Route}  from 'react-router-dom';
 import Company from './views/Company';
+import Category from './views/Category';
+import Advert from './views/Advert';
 
 
 function App() {
@@ -24,7 +26,8 @@ function App() {
             <Route exact path="/" component={Feed}/>
             <Route exact path="/profile" component={Profile}/>
             <Route exact path="/company/:id" component={Company}/>
-            
+            <Route exact path="/category/:id" component={Category}/>
+            <Route exact path="/advert/:id" component={Advert}/>
           </Switch>
 
           <CompanyList/>
