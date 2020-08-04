@@ -9,7 +9,7 @@ import Notification from '../student_profile/notification'
 
 function Profile() {
     return(
-        <div className = "profile">
+        <div className = "profile" style={{minHeight:"91vh"}}>
             <Router>
                 <Header/>
                 

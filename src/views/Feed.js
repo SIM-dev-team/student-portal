@@ -2,67 +2,43 @@ import React, {useState , useEffect} from 'react'
 import FeedAdvert from '../components/FeedAdvert'
 import axios from 'axios'
 
-const adList = [
-    {   
-        id : 1,
-        comp_name : 'A company',
-        comp_website : 'www.testwebsite.com',
-        internship_position : 'Software Engineering',
-        comp_logo : 'A',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-    },
-    {   
-        id : 2,
-        comp_name : 'A company',
-        comp_website : 'www.testwebsite.com',
-        internship_position : 'Software Engineering',
-        comp_logo : 'A',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-    },
-    {   
-        id : 3,
-        comp_name : 'A company',
-        comp_website : 'www.testwebsite.com',
-        internship_position : 'Software Engineering',
-        comp_logo : 'A',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-    },
-    {   
-        id : 4,
-        comp_name : 'A company',
-        comp_website : 'www.testwebsite.com',
-        internship_position : 'Software Engineering',
-        comp_logo : 'A',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-    },
-    {   
-        id : 5,
-        comp_name : 'A company',
-        comp_website : 'www.testwebsite.com',
-        internship_position : 'Software Engineering',
-        comp_logo : 'A',
-        description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-    },
-   
-]
-
 function Feed() {
 
     const [advertList , setAdvertList] = useState([]);
+    const [search , setSearch] = useState('');
+    const [filteredAdvertsList , setFilteredAdvertsList] = useState([]);
+
+    useEffect(()=>{
+        const filter = advertList.filter(advert => {
+          return (advert.position_desc.toLowerCase().includes(search.toLowerCase()) || advert.job_desc.toLowerCase().includes(search.toLowerCase()));
+        })
+        setFilteredAdvertsList(filter);
+    },[search , advertList])
 
     useEffect(()=>{
         axios
           .get("http://localhost:5000/advert/getAll")
           .then(res => {
+              console.log(res.data)
             setAdvertList(res.data);
           })
           .catch(err => console.error(err));
     },[])
     return (
         <React.Fragment>
-            <div className="feed-home" style={{height:"91vh"}}>
+            <div className="feed-home" style={{minHeight:"91vh"}}>
+                <div className="searchbar">
+                <input 
+                            type="text" 
+                            name="" 
+                            className="company-list-searchbox" 
+                            placeholder="Search for a keyword..."
+                            onChange={(e)=>{
+                                setSearch(e.target.value);
+                            }}/>
+                </div>
                 <div className="feed-body">
-                    {advertList.map((advert) =>{
+                    {filteredAdvertsList.map((advert) =>{
                         return(
                             <FeedAdvert key={advert.ad_id} advert={advert} />
                         );

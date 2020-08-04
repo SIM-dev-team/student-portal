@@ -2,17 +2,17 @@ import React,{useState , useEffect} from 'react'
 import '../App.css';
 import axios from 'axios';
 
-const ad = {   
-    id : 1,
-    comp_name : 'A company',
-    comp_website : 'www.testwebsite.com',
-    internship_position : 'Software Engineering',
-    comp_logo : 'A',
-    no_of_positions : 5,
-    no_of_applicants : 3,
-    pic_url : '' ,
-    description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
-}
+// const ad = {   
+//     id : 1,
+//     comp_name : 'A company',
+//     comp_website : 'www.testwebsite.com',
+//     internship_position : 'Software Engineering',
+//     comp_logo : 'A',
+//     no_of_positions : 5,
+//     no_of_applicants : 3,
+//     pic_url : '' ,
+//     description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore possimus ipsam consequuntur aliquid distinctio voluptatibus repellendus numquam quibusdam laborum amet facilis, iste, ipsum id atque perspiciatis, nemo ratione aperiam porro!'
+// }
 function Advert({match}) {
 
     const  [advert , setAdvert] = useState({});

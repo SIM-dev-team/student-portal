@@ -6,7 +6,6 @@ function Navbar() {
     return (
         <div className="navbar">
             <div className="logo">Professionnal Development Center</div>
-            <div className="searchbar">search</div>
             <div className="nav-items">
                 <ul className="nav-list">
                     <Link to="/">
