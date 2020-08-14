@@ -9,9 +9,11 @@ import Notification from '../student_profile/notification'
 
 function Profile() {
     return(
+        <React.Fragment>
         <div className = "profile" style={{minHeight:"91vh"}}>
             <Router>
                 <Header/>
+                
                 
                 <Switch>
                     <Route exact path="/Mycv" component={Mycv}/>
@@ -21,7 +23,7 @@ function Profile() {
                 </Switch>
             </Router>
         </div>
-            
+        </React.Fragment>    
         
     )
 }
