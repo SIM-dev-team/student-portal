@@ -10,6 +10,8 @@ import Company from './views/Company';
 import Category from './views/Category';
 import Advert from './views/Advert';
 import Login from './views/login';
+import ResetPassword from './views/resetPassword';
+import ForgotPassword from './views/forgotPassword';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
     <div className="App">
       <Router>
       <Route exact path="/login" component={Login}/>
+      <Route exact path="/setPassword" component={ResetPassword}/>
+      <Route exact path="/forgotPassword" component={ForgotPassword}/>
         <Navbar/>
 
         <div className="empty-block"></div>
