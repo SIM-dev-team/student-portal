@@ -1,9 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import '../App.css';
-import {Link} from 'react-router-dom';
+import { useHistory , Link } from "react-router-dom";
 import {Form} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import {useFormik} from 'formik';
+import axios from 'axios';
 
 const initialValues = {
     reg_no :'',
@@ -32,6 +33,23 @@ const validate = values =>{
 function Login() {
 
     const formik = useFormik({initialValues,onSubmit,validate});
+    const history = useHistory();
+
+    const [error, setError] = useState(null);
+
+    const submitData = (e) =>{
+        e.preventDefault();
+        axios
+          .post('http://localhost:5000/student/login', formik.values)
+          .then(res => {
+            localStorage.setItem('StudentToken' , res.data)
+            history.push('/');
+          })
+          .catch(err => {
+              setError(err.message);
+              console.error(err)
+          });
+    }
 
     return (
         <React.Fragment>
@@ -39,7 +57,7 @@ function Login() {
                 <div className="login-form">
                     <div className="login-header">Login</div>
                     <div className="login-container">
-                    <Form onSubmit={formik.handleSubmit}>
+                    <Form onSubmit={submitData}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Registration No</Form.Label>
                         <Form.Control 
@@ -65,6 +83,9 @@ function Login() {
                         onBlur={formik.handleBlur}
                         value={formik.values.password}/>
                         {formik.errors.password && formik.touched.password ? <small className='text-danger'>{formik.errors.password}</small> : ''}
+                    </Form.Group>
+                    <Form.Group>
+                    <small className="text-danger">{error}</small>
                     </Form.Group>
                     <Form.Group style={{float:'right'}}>
                         <Link to="/forgotPassword">forgot password</Link>
