@@ -41,16 +41,28 @@ function Login() {
 
     const submitData = (e) =>{
         e.preventDefault();
+        console.log(formik.values);
         axios
           .post('http://localhost:5000/student/login', formik.values)
           .then(res => {
-            localStorage.setItem('StudentToken' , res.data);
-            auth.setAuthenticatedTrue();
-            history.push('/');
+            console.log(res.data);
+            if(res.data === 'no user data found'){
+                setError('no user data found')
+            }else if(res.data ==='incorrect password'){
+                setError('incorrect password')
+            }else if(res.data ==='not verified'){
+                setError('not verified account')
+            }
+            else{
+                localStorage.setItem('StudentToken' , res.data);
+                auth.setAuthenticatedTrue();
+                history.push('/');
+            }
+            
           })
           .catch(err => {
-              setError(err.message);
-              console.error(err)
+              setError('something went wrong')
+              console.log(err.data);
           });
     }
 
@@ -61,7 +73,7 @@ function Login() {
                     <div className="login-header">Login</div>
                     <div className="login-container">
                     <Form onSubmit={submitData}>
-                    <Form.Group controlId="formBasicEmail">
+                    <Form.Group>
                         <Form.Label>Registration No</Form.Label>
                         <Form.Control 
                         type="text" 
@@ -75,7 +87,7 @@ function Login() {
                     {formik.errors.reg_no && formik.touched.reg_no ? <small className='text-danger'>{formik.errors.reg_no}</small> : ''}
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control 
                         type="password" 
