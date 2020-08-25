@@ -9,7 +9,12 @@ class Auth {
     }
 
     isLoggedIn(){
-        return this.isLoggedIn;
+        const token = localStorage.getItem('StudentToken');
+        if(!token.length){
+           return true;
+        }else{
+           return false;
+        }
     }
 
     setAuthenticatedTrue(){
