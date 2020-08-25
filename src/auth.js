@@ -1,6 +1,15 @@
 class Auth {
     constructor(){
-        this.authenticated = false;
+        const token = localStorage.getItem('StudentToken');
+        if(!token.length){
+            this.authenticated = true;
+        }else{
+            this.authenticated = false;
+        }
+    }
+
+    isLoggedIn(){
+        return this.isLoggedIn;
     }
 
     setAuthenticatedTrue(){
