@@ -1,19 +1,21 @@
 class Auth {
-    constructor(){
-        const token = localStorage.getItem('StudentToken');
-        if(!token.length){
-            this.authenticated = true;
-        }else{
-            this.authenticated = false;
-        }
-    }
+    // constructor(){
+    //     // var token = localStorage.getItem('StudentToken');
+    //     // if(!token === null){
+    //     //     this.authenticated = true;
+    //     // }else{
+    //     //     this.authenticated = false;
+    //     // }
+    // }
 
     isLoggedIn(){
-        const token = localStorage.getItem('StudentToken');
-        if(!token.length){
-           return true;
+        var token = localStorage.getItem('StudentToken');
+        console.log(token)
+        if(!token === null){
+            
+            return true;
         }else{
-           return false;
+            return false;
         }
     }
 

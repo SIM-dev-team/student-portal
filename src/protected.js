@@ -8,9 +8,12 @@ export const ProtectedRoute = ({ component: Component, ...rest}) =>{
         <Route
             {...rest}
             render ={props =>{
-                if(auth.isLoggedIn){
+                console.log(localStorage.getItem('StudentToken'))
+                if(!localStorage.getItem('StudentToken') === null){
+                    console.log('h')
                     return <Component {...props} />;
                 }else{
+                    console.log('j')
                     return <Redirect to ={
                         {
                             pathname: "/login",
