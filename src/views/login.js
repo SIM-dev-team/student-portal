@@ -6,7 +6,8 @@ import {Button} from 'react-bootstrap';
 import {useFormik} from 'formik';
 import axios from 'axios';
 
-import auth from '../auth';
+// import auth from '../auth';
+
 
 const initialValues = {
     reg_no :'',
@@ -45,7 +46,6 @@ function Login() {
         axios
           .post('http://localhost:5000/student/login', formik.values)
           .then(res => {
-            console.log(res.data);
             if(res.data === 'no user data found'){
                 setError('no user data found')
             }else if(res.data ==='incorrect password'){
@@ -55,7 +55,6 @@ function Login() {
             }
             else{
                 localStorage.setItem('StudentToken' , res.data);
-                auth.setAuthenticatedTrue();
                 history.push('/');
             }
             
