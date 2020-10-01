@@ -12,7 +12,6 @@ class Auth {
         var token = localStorage.getItem('StudentToken');
         console.log(token)
         if(!token === null){
-            
             return true;
         }else{
             return false;
