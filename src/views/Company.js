@@ -89,7 +89,7 @@ function Company({match}) {
 
     return (
         <React.Fragment>
-            <div className="feed-home" style={{minHeight:"90vh"}}>
+            <div className="feed-home" style={{minHeight:"91vh"}}>
                 <div className="feed-content">
                     <div className="row company-data">
                         <div className="col-md-3 compant-logo">

@@ -5,7 +5,7 @@ import 'tippy.js/dist/tippy.css';
 
 const CompanyTooltip = (params) =>{
     return(
-        <div className="company-tool-tip"> Compant tool tip
+        <div className="company-tool-tip">
         <div>{params.company.comp_name}</div>
         <div>{params.company.comp_website}</div>
         <div>{params.company.description}</div>
