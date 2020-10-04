@@ -23,17 +23,17 @@ export class EditModal extends Component{
                 <div className = "container">
                     <Form>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col} >
                         <Form.Label>First Name</Form.Label>
                         <Form.Control type="text" placeholder="" />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col} >
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control type="text" placeholder="" />
                         </Form.Group>
                     </Form.Row>
-                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                    <Form.Group as={Row} >
                         <Form.Label column sm={2}>
                         Email
                         </Form.Label>
@@ -41,7 +41,7 @@ export class EditModal extends Component{
                         <Form.Control type="email" placeholder="" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                    <Form.Group as={Row} >
                         <Form.Label column sm={2}>
                             Phone
                         </Form.Label>
@@ -49,7 +49,7 @@ export class EditModal extends Component{
                         <Form.Control type="Text" placeholder="" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} controlId="formHorizontalEmail">
+                    <Form.Group as={Row} >
                         <Form.Label column sm={2}>
                             Address
                         </Form.Label>
@@ -58,12 +58,12 @@ export class EditModal extends Component{
                         </Col>
                     </Form.Group>
                     <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Group as={Col} >
                         <Form.Label>Index No</Form.Label>
                         <Form.Control type="text" placeholder="" />
                         </Form.Group>
 
-                        <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Group as={Col}>
                         <Form.Label>Course</Form.Label>
                         <Form.Control as="select">
                             <option>Information Systems</option>
@@ -78,7 +78,23 @@ export class EditModal extends Component{
                             Must be in png/jpeg format
                         </Form.Text>
                     </Form.Group>
-                    
+                    <Form.Group as={Row} >
+                        <Form.Label column="lg" lg={6}>
+                            <b>Change Password</b>
+                        </Form.Label>
+                    </Form.Group>
+                    <Form.Row>
+                        <Form.Group as={Col} >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="" />
+                        </Form.Group>
+
+                        <Form.Group as={Col} >
+                        <Form.Label>Retype Password</Form.Label>
+                        <Form.Control type="password" placeholder="" />
+                        </Form.Group>
+                    </Form.Row>
+
                     </Form>
                     
                 </div>
