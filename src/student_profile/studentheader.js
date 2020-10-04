@@ -47,18 +47,18 @@ class studentheader extends Component {
                             </button>
                             </Link>
                         </div>
+                        
                         <div className = "selection_advert row">
-                            <h6 style = {{ margin:'10px 15px' ,  textDecoration: 'underline'}}>SELECTED ADVERTS</h6>
-                            <div className = "bullet_prefer tp-bullets simplebullets round hovered">
-                                <div className = "bullet first"></div>
-                                <div className = "bullet"></div>
-                                <div className = "bullet"></div>
-                                <div className = "bullet"></div>
-                                <div className = "bullet last"></div>
-                                <div className = "tpclear"></div>
-
+                        <Link to="/Prefer"> <h6 style = {{ margin:'10px 15px' ,  textDecoration: 'underline'}}>SELECTED ADVERTS</h6> </Link>
+                            <div className = "bullet_prefer tp-bullets simplebullets round hovered row ">
+                                <button className = "selection "> 1 </button>
+                                <button className = "selection "> 2 </button>
+                                <button className = "selection"> 3 </button>
+                                <button className = "selection"> 4 </button>
+                                <button className = "selection"> 5 </button>
                             </div>
                         </div>
+                        
                     </div>
                     
                 </div >
