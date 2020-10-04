@@ -6,7 +6,7 @@ import {Button} from 'react-bootstrap';
 import {useFormik} from 'formik';
 import axios from 'axios';
 
-// import auth from '../auth';
+import auth from '../auth';
 
 
 const initialValues = {
@@ -54,7 +54,7 @@ function Login() {
                 setError('not verified account')
             }
             else{
-                localStorage.setItem('StudentToken' , res.data);
+                auth.setAuthenticatedTrue(res.data);
                 history.push('/');
             }
             
