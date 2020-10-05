@@ -1,16 +1,14 @@
-import React from 'react';
+import React , {useState} from 'react';
 import '../App.css';
 import {Form} from 'react-bootstrap';
+import { useHistory , Link } from "react-router-dom";
 import {Button} from 'react-bootstrap';
 import {useFormik} from 'formik';
+import axios from 'axios';
 
 const initialValues = {
     password :'',
     repassword :''
-}
-
-const onSubmit = values =>{
-    console.log(values);
 }
 
 const validate = values =>{
@@ -27,11 +25,35 @@ const validate = values =>{
     }
     return errors;
 }
+const onSubmit = values =>{
+    console.log(values);
+}
 
 
-function ResetPassword() {
+function ResetPassword({match}) {
 
     const formik = useFormik({initialValues,onSubmit,validate});
+    const [error, setError] = useState(null);
+    const history = useHistory();
+
+    const submitData = (e) =>{
+        e.preventDefault();
+        const data = { password : formik.values.password , token : match.params.token };
+        // console.log(data);
+        axios
+          .post('http://localhost:5000/student/setPassword', data)
+          .then(res => {
+            if(res.data === 'password set successfully'){
+                history.push('/login');
+            }else{
+                setError('something went wrong')
+            }
+          })
+          .catch(err => {
+              setError('something went wrong')
+              console.log(err.data);
+          });
+    }
 
     return (
         <React.Fragment>
@@ -39,8 +61,8 @@ function ResetPassword() {
                 <div className="login-form">
                     <div className="login-header">Set Password</div>
                     <div className="login-container">
-                    <Form>
-                    <Form.Group controlId="formBasicPassword">
+                    <Form onSubmit={submitData}>
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control 
                         type="password" 
@@ -52,7 +74,7 @@ function ResetPassword() {
                         value={formik.values.password}/>
                         {formik.errors.password && formik.touched.password ? <small className='text-danger'>{formik.errors.password}</small> : ''}
                     </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
+                    <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control 
                         type="password" 
@@ -72,6 +94,9 @@ function ResetPassword() {
                     > 
                         Confirm
                     </Button>
+                    <Form.Group>
+                    <small className="text-danger">{error}</small>
+                    </Form.Group>
                     </Form>
                     </div>
                 </div>
