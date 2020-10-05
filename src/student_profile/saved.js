@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Student.css'
+import {ViewModal} from './viewmoreModal'
 import {ADVERTS} from './card'
 
 
@@ -8,13 +10,25 @@ class Saved extends Component {
 
     constructor(props) {
         super(props);
-    
+        this.state ={editModalShow : false}
         this.state = {
-            ads: ADVERTS
+            ads: ADVERTS,
+            aid: ''
         };
     }
 
+    handleClick = id =>{
+        this.setState({
+            editModalShow: true,
+            
+        })
+        this.setState({aid: id})
+
+      } 
+
     render() {
+        let editModalClose =() => this.setState({editModalShow: false });
+
         const menu = this.state.ads.map((ad) => 
             <div key = {ad.id}>
                 <div className ="student_card container card mb-3 card">
@@ -28,11 +42,11 @@ class Saved extends Component {
 
                         </div>
                         <div className = "company_buttons ">
-                            <button className = "button_link">
+                            <button className = "button_link" onClick={() => this.handleClick(ad.id)} >
                                 View More
                             </button>
                             <button className = "button_link">
-                                Saved
+                                Save/Unsave
                             </button>
                         </div>
                     </div>
@@ -56,6 +70,12 @@ class Saved extends Component {
                    
                 </div>
             </div>
+            <ViewModal
+            show = {this.state.editModalShow}
+            onHide = {editModalClose}
+            aid = {this.state.aid}
+            />
+
             </React.Fragment>
         );
     }
