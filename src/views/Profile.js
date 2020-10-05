@@ -188,17 +188,41 @@ function Profile() {
     }
     const project1add = (e) =>{
         e.preventDefault();
-        console.log(formikP1.values);
+        const data = {  number : 1 ,reg_no : user.reg_no , name : formikP1.values.name , desc : formikP1.values.desc , tech : formikP1.values.tech , link: formikP1.values.link}
+        axios
+        .post(`http://localhost:5000/student/addProject`,{data})
+                .then(res => {
+                    console.log(res);
+                    setIsUpdating(false);
+                    window.location.reload();
+                  })
+                .catch(err => console.error(err));
     }
 
     const project2add = (e) =>{
         e.preventDefault();
-        console.log(formikP2.values);
+        const data = {  number : 2 ,reg_no : user.reg_no, name : formikP2.values.name , desc : formikP2.values.desc , tech : formikP2.values.tech , link: formikP2.values.link}
+        axios
+        .post(`http://localhost:5000/student/addProject`,{data})
+                .then(res => {
+                    console.log(res);
+                    setIsUpdating(false);
+                    window.location.reload();
+                  })
+                .catch(err => console.error(err));
     }
 
     const project3add = (e) =>{
         e.preventDefault();
-        console.log(formikP3.values);
+        const data = {  number : 3 ,reg_no : user.reg_no, name : formikP3.values.name , desc : formikP3.values.desc , tech : formikP3.values.tech , link: formikP3.values.link}
+        axios
+        .post(`http://localhost:5000/student/addProject`,{data})
+                .then(res => {
+                    console.log(res);
+                    setIsUpdating(false);
+                    window.location.reload();
+                  })
+                .catch(err => console.error(err));
     }
     const handleImageChange = (e) => {
         if(e.target.files[0]){
@@ -238,10 +262,10 @@ function Profile() {
                 </div>
                 <div className="profile-middle">
                 <div className="profile-header">Projects Involved</div>
-                <div hidden={!projects}>No data added</div>
-                {!projects ? <Project id = {user.project_1}/> : <button className="edit-profile-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
-                {!projects ? <Project id = {user.project_2}/> : <button className="edit-profile-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
-                {!projects ? <Project id = {user.project_3}/> : <button className="edit-profile-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
+                <div hidden={projects}>No data added</div>
+                {user.projects_1 !== 0 ? <Project id = {user.project_1}/> : <button className="edit-profile-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
+                {user.projects_2 !== 0 ? <Project id = {user.project_2}/> : <button className="edit-profile-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
+                {user.projects_3 !== 0 ? <Project id = {user.project_3}/> : <button className="edit-profile-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
                 </div>
                 </div>
                 
