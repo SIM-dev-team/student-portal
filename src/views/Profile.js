@@ -1,3 +1,4 @@
+
 import React,{useState , useEffect} from 'react';
 import '../App.css';
 // import {BrowserRouter as Router , Switch , Route}  from 'react-router-dom';
@@ -501,8 +502,10 @@ function Profile() {
                 <Header/>
                 <Switch>
                     <Route exact path="/Mycv" component={Mycv}/>
+                    <Route exact path="/Prefer" component={Prefer}/>
                     <Route exact path="/Saved" component={Saved}/>
                     <Route exact path="/Notification" component={Notification}/>
+                    <Redirect from="/" to="/Prefer" />
                 </Switch>
             </Router> */}
         </React.Fragment>    
