@@ -8,8 +8,8 @@ export const ProtectedRoute = ({ component: Component, ...rest}) =>{
         <Route
             {...rest}
             render ={props =>{
-                console.log(auth.isLoggedIn());
-                if(auth.isLoggedIn()){
+                console.log(localStorage.getItem('isStudentLoggedIn'));
+                if(localStorage.getItem('isStudentLoggedIn')){
                     console.log('h')
                     return <Component {...props} />;
                 }else{

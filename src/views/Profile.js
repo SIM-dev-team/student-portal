@@ -1,7 +1,7 @@
 
 import React,{useState , useEffect} from 'react';
 import '../App.css';
-// import {BrowserRouter as Router , Switch , Route}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Project from '../components/ProjectsInvolved';
 import { Form , Col } from 'react-bootstrap';
@@ -43,7 +43,7 @@ Model.setAppElement('#root');
 function Profile() {
 
     const  [user , setUser] = useState({});
-    const  [percentage , setPercentage] = useState(0);
+    const [isdataloaded,setisdataloaded] = useState(false);
     const [interested , setInterested] = useState(false);
     const [projects , setProjects] = useState(false);
     const [isEditProfileModelOpen , setIsEditProfileModelOpen] = useState(false);
@@ -68,25 +68,9 @@ function Profile() {
           .post("http://localhost:5000/student/getStudentData",{token : localStorage.getItem('StudentToken')})
           .then(res => {
               setUser(res.data);
-                if(user.interested_1 !== ''){
-                    setPercentage(prev => prev + 10);
-                }
-                if(user.interested_2 !== ''){
-                    setPercentage(prev => prev + 10);
-                }
-                if(user.interested_3 !== ''){
-                    setPercentage(prev => prev + 10);
-                }
-                if(user.projects_1 > 0){
-                    setPercentage(prev => prev + 20);
-                }
-                if(user.projects_2 > 0){
-                    setPercentage(prev => prev + 20);
-                }
-                if(user.projects_3 > 0){
-                    setPercentage(prev => prev + 20);
-                }
-              if(user.interested_1 === null && user.interested_2 === null && user.interested_3 === null){
+              setCurrentUser(res.data);
+              setisdataloaded(true);
+              if(user.interested_1 === '' && user.interested_2 === '' && user.interested_3 === ''){
                 setInterested(false);
               }else{
                 setInterested(true);
@@ -235,7 +219,7 @@ function Profile() {
         <React.Fragment>
         <div className = "profile" style={{minHeight:"91vh"}}>
             <div className = "profile_background">
-                <div className="profile-complete-bar">profile {percentage}% completed <button className="edit-profile-btn" onClick={()=>setIsEditProfileModelOpen(true)}>edit profile</button></div>
+                <div className="profile-complete-bar"><button className="edit-profile-btn" onClick={()=>setIsEditProfileModelOpen(true)}>edit profile</button></div>
                 <div className="profile-top">
                     <div>
                         <div className="profile-header">Basic Details</div>
@@ -251,8 +235,8 @@ function Profile() {
                 </div>
                 <hr/>
                 <div className="profile-btns">
-                    <button>Selected Adverts</button>
-                    <button>Notifications</button>
+                    <Link to={`/selectedAdverts`}><button className="profile-btns-btn">Selected Adverts</button></Link>
+                    <button className="profile-btns-btn">Notifications</button>
                 </div>
                 <div className="profile-middle">
                 <div className="profile-header">Interested Areas</div>
@@ -264,9 +248,9 @@ function Profile() {
                 <div className="profile-middle">
                 <div className="profile-header">Projects Involved</div>
                 <div hidden={projects}>No data added</div>
-                {user.projects_1 !== 0 ? <Project id = {user.project_1}/> : <button className="edit-profile-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
-                {user.projects_2 !== 0 ? <Project id = {user.project_2}/> : <button className="edit-profile-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
-                {user.projects_3 !== 0 ? <Project id = {user.project_3}/> : <button className="edit-profile-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
+                {(user.projects_1 !== 0 && isdataloaded) ? <Project id = {user.projects_1}/> : <button className="edit-profile-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
+                {(user.projects_2 !== 0 && isdataloaded) ? <Project id = {user.projects_2}/> : <button className="edit-profile-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
+                {(user.projects_3 !== 0 && isdataloaded) ? <Project id = {user.projects_3}/> : <button className="edit-profile-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
                 </div>
                 </div>
                 

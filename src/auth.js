@@ -14,11 +14,13 @@ class Auth {
 
     setAuthenticatedTrue(data){
         localStorage.setItem('StudentToken' ,data);
+        localStorage.setItem('isStudentLoggedIn' ,true);
         this.authenticated = true;
     }
 
     setAuthenticatedFalse(){
         localStorage.setItem('StudentToken' , null);
+        localStorage.setItem('isStudentLoggedIn' ,false);
         this.authenticated = false;
     }
 }

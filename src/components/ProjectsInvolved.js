@@ -1,14 +1,26 @@
-import React from 'react'
-import '../App.css'
+import React , {useState , useEffect} from 'react'
+import '../App.css';
+import axios from 'axios'
 
 function Project(params) {
+
+    const [project , setProject] = useState([]);
+
+    useEffect(()=>{
+        console.log()
+        axios
+          .get(`http://localhost:5000/student/getProject/${params.id}`)
+          .then(res => setProject(res.data) )
+          .catch(err => console.error(err));
+    },[])
+
     return (
         <div>
            <div className="project">
-                <div className="project-name">project name</div> 
-                <div className="project-desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda accusantium voluptatum eaque consequatur ad, architecto voluptates deserunt quae, sapiente mollitia nemo sint voluptas deleniti non excepturi doloremque explicabo pariatur necessitatibus.</div>
-                <div className="project-tech">Java | Spring</div>
-                <div className="project-link">Link</div>
+                <div className="project-name">{project.name}</div> 
+                <div className="project-desc">{project.description}</div>
+                <div className="project-tech">{project.tech_stack}</div>
+                <div className="project-link">{project.link}</div>
            </div>
         </div>
     )
