@@ -10,6 +10,7 @@ import Company from './views/Company';
 import Category from './views/Category';
 import Advert from './views/Advert';
 import Login from './views/login';
+import SelectedAdverts from './views/SelectedAdverts';
 import ResetPassword from './views/resetPassword';
 import ForgotPassword from './views/forgotPassword';
 import { ProtectedRoute } from './protected';
@@ -31,6 +32,7 @@ function App() {
           <CategoryList/>
             <ProtectedRoute exact path="/" component={Feed}/>
             <Route exact path="/profile" component={Profile}/>
+            <Route exact path="/selectedAdverts" component={SelectedAdverts}/>
             <ProtectedRoute exact path="/company/:id" component={Company}/>
             <ProtectedRoute exact path="/category/:id" component={Category}/>
             <ProtectedRoute exact path="/advert/:id" component={Advert}/>
