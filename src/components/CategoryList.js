@@ -9,10 +9,10 @@ function CategoryList() {
 
     useEffect(()=>{
         axios
-          .get("http://localhost:5000/advert/getCategories")
+          .get(`http://localhost:5000/advert/getCategories`)
           .then(res => {
             setCategoryList(res.data);
-            // console.log(res.data)
+            console.log(res.data)
           })
           .catch(err => console.error(err));
     },[])

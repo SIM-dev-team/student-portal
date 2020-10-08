@@ -1,7 +1,7 @@
 
 import React,{useState , useEffect} from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { useHistory , Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 import Project from '../components/ProjectsInvolved';
 import { Form , Col } from 'react-bootstrap';
@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import Model from 'react-modal';
 import { storage } from '../firebase';
+import auth from '../auth';
 // import Header from '../student_profile/studentheader'
 // import Saved from '../student_profile/saved'
 // import Mycv from '../student_profile/cv'
@@ -41,7 +42,7 @@ const modalStyles = {
 Model.setAppElement('#root');
 
 function Profile() {
-
+    const history = useHistory();
     const  [user , setUser] = useState({});
     const [isdataloaded,setisdataloaded] = useState(false);
     const [interested , setInterested] = useState(false);
@@ -50,6 +51,7 @@ function Profile() {
     const [isProject1ModelOpen , setIsProject1ModelOpen] = useState(false);
     const [isProject2ModelOpen , setIsProject2ModelOpen] = useState(false);
     const [isProject3ModelOpen , setIsProject3ModelOpen] = useState(false);
+    const [islogoutModelOpen , setIslogoutModelOpen] = useState(false);
     const [isUpdating , setIsUpdating] = useState(false);
     const [profileImage , setProfileImage] = useState(null);
     const [currentUser , setCurrentUser] = useState({
@@ -219,7 +221,10 @@ function Profile() {
         <React.Fragment>
         <div className = "profile" style={{minHeight:"91vh"}}>
             <div className = "profile_background">
-                <div className="profile-complete-bar"><button className="edit-profile-btn" onClick={()=>setIsEditProfileModelOpen(true)}>edit profile</button></div>
+                <div className="profile-complete-bar">
+                    <button className="edit-profile-btn" onClick={()=>setIsEditProfileModelOpen(true)}>edit profile</button>
+                    <button className="edit-profile-btn" onClick={()=>setIslogoutModelOpen(true)}>logout</button>
+                </div>
                 <div className="profile-top">
                     <div>
                         <div className="profile-header">Basic Details</div>
@@ -248,9 +253,9 @@ function Profile() {
                 <div className="profile-middle">
                 <div className="profile-header">Projects Involved</div>
                 <div hidden={projects}>No data added</div>
-                {(user.projects_1 !== 0 && isdataloaded) ? <Project id = {user.projects_1}/> : <button className="edit-profile-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
-                {(user.projects_2 !== 0 && isdataloaded) ? <Project id = {user.projects_2}/> : <button className="edit-profile-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
-                {(user.projects_3 !== 0 && isdataloaded) ? <Project id = {user.projects_3}/> : <button className="edit-profile-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
+                {(user.projects_1 !== 0 && isdataloaded) ? <Project id = {user.projects_1}/> : <button className="add-project-btn" onClick={()=>setIsProject1ModelOpen(true)}>Add project</button>}
+                {(user.projects_2 !== 0 && isdataloaded) ? <Project id = {user.projects_2}/> : <button className="add-project-btn" onClick={()=>setIsProject2ModelOpen(true)}>Add project</button>}
+                {(user.projects_3 !== 0 && isdataloaded) ? <Project id = {user.projects_3}/> : <button className="add-project-btn" onClick={()=>setIsProject3ModelOpen(true)}>Add project</button>}
                 </div>
                 </div>
                 
@@ -479,6 +484,20 @@ function Profile() {
                     </div>       
                 </Form>
                 <small className="updating-text" hidden={!isUpdating}>Updating ...</small>
+            </Model>
+            <Model isOpen={islogoutModelOpen} style={modalStyles}>
+
+                <div className="logout-modal-title">Logout</div>
+                <div className="logout-modal-text">Do you want to logout ?</div>
+                <div className="row logout-model-buttons">
+                <button className="btn btn-primary" onClick={()=>setIslogoutModelOpen(false)}>Cancel</button>
+                <button className="btn btn-danger" 
+                        onClick={
+                            ()=>{auth.setAuthenticatedFalse(); history.push('/');}
+                            }
+                            >Logout</button>
+                </div>
+                
             </Model>
 
 
