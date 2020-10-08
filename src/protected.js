@@ -9,7 +9,7 @@ export const ProtectedRoute = ({ component: Component, ...rest}) =>{
             {...rest}
             render ={props =>{
                 console.log(localStorage.getItem('isStudentLoggedIn'));
-                if(localStorage.getItem('isStudentLoggedIn')){
+                if(localStorage.getItem('isStudentLoggedIn') === 'true'){
                     console.log('h')
                     return <Component {...props} />;
                 }else{
