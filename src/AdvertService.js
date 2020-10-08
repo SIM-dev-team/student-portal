@@ -37,7 +37,12 @@ class AdvertService {
 
     getSavedAdverts(){
         var savedAds = JSON.parse(localStorage.getItem("SavedAds"));
-        return savedAds;
+        var empty = [];
+        if(savedAds){
+            return savedAds;
+        }else{
+            return empty;
+        }
     }
 }
 

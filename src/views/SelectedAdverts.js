@@ -1,6 +1,7 @@
 
 import React,{useState , useEffect} from 'react';
 import '../App.css';
+import PinnedAdvert from '../components/PinnedAdvert'
 // import {BrowserRouter as Router , Switch , Route}  from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Project from '../components/ProjectsInvolved';
@@ -9,10 +10,9 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 import Model from 'react-modal';
 import { storage } from '../firebase';
-// import Header from '../student_profile/studentheader'
-// import Saved from '../student_profile/saved'
-// import Mycv from '../student_profile/cv'
-// import Notification from '../student_profile/notification'
+
+import AdvertService from '../AdvertService';
+
 const modalStyles = {
     content : {
       top                   : '50%',
@@ -41,14 +41,20 @@ const modalStyles = {
 Model.setAppElement('#root');
 
 function SelectedAdverts() {
-
-
     return(
         <React.Fragment>
         <div className = "profile" style={{minHeight:"91vh"}}>
             <div className = "profile_background">
                 <div className="profile-header">Selected Adverts</div>
                 <div className="profile-header">Pinned Adverts</div>
+                <div className="pinned-section">
+                  {AdvertService.getSavedAdverts().map((advert) =>{
+                    console.log(advert);
+                          return(
+                              <PinnedAdvert key={advert} advert={advert} />
+                          );
+                      })}
+                </div>
             </div>
         </div>
         </React.Fragment>    
