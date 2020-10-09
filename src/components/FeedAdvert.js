@@ -7,8 +7,11 @@ function FeedAdvert(params) {
 
     const [saved , setSaved] = useState();
 
-    useEffect(()=>{setSaved(AdvertService.isSaved(params.advert.ad_id))},[])
+    useEffect(()=>{
+        setSaved(AdvertService.isSaved(params.advert.ad_id));
+    },[])
 
+    
     const save = () => {
         console.log('saved');
         AdvertService.saveAdvert(params.advert.ad_id);

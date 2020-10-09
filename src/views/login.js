@@ -5,6 +5,7 @@ import {Form} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import {useFormik} from 'formik';
 import axios from 'axios';
+import advertService from '../AdvertService';
 
 import auth from '../auth';
 
@@ -55,7 +56,16 @@ function Login() {
             }
             else{
                 auth.setAuthenticatedTrue(res.data);
-                history.push('/');
+                axios
+                  .post("http://localhost:5000/advert/getAppliedAdverts",{token : res.data})
+                  .then(resp => {
+                    console.log(resp.data);
+                    advertService.saveAppliedAdverts(resp.data);
+                  })
+                  .catch(errp => console.error(errp))
+                  .finally(()=>{
+                    history.push('/');
+                  })
             }
             
           })
