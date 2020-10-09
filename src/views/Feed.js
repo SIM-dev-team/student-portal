@@ -41,8 +41,9 @@ function Feed() {
                     {filteredAdvertsList.map((advert) =>{
                         return(
                             <FeedAdvert key={advert.ad_id} advert={advert} />
+
                         );
-                    })}
+                    })} 
                 </div>
             </div>
         </React.Fragment>

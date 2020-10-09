@@ -378,7 +378,8 @@
     flex-direction: column;
 }
 
-.advert-company-right button {
+
+/* .advert-company-right button {
     border: none;
     margin: 5px 0;
     background-color: rgb(24, 187, 216);
@@ -386,7 +387,7 @@
     color: white;
     border-radius: 2px;
     padding: 0 20px;
-}
+} */
 
 .advert-internship-position-title {
     font-weight: 500;
@@ -524,7 +525,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
-    padding-right: 200px;
+    padding-right: 100px;
     padding-left: 40px;
     width: 100%;
 }
@@ -621,4 +622,26 @@
 
 .pinned-section {
     padding: 20px;
+}
+
+.profile-saved-advert-header {
+    font-size: 30px;
+    color: rgb(102, 102, 102);
+    text-align: center;
+}
+
+.apply-for-advert-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+.view-cv-button {
+    border: none;
+    margin: 5px 0;
+    width: 115px;
+    background-color: rgb(24, 187, 216);
+    box-shadow: 1px 1px 1px gray;
+    color: white;
+    border-radius: 2px;
+    padding: 0 20px;
 }
