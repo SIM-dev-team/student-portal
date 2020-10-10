@@ -19,8 +19,9 @@ class Auth {
     }
 
     setAuthenticatedFalse(){
-        localStorage.setItem('StudentToken' , null);
-        localStorage.setItem('isStudentLoggedIn' ,false);
+        // localStorage.setItem('StudentToken' , null);
+        // localStorage.setItem('isStudentLoggedIn' ,false);
+        localStorage.clear();
         this.authenticated = false;
     }
 }

@@ -1,8 +1,28 @@
-import React from 'react'
+import React,{useEffect, useState}  from 'react'
 import '../App.css'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import AdvertService from '../AdvertService';
 
 function FeedAdvert(params) {
+
+    const [saved , setSaved] = useState();
+
+    useEffect(()=>{
+        setSaved(AdvertService.isSaved(params.advert.ad_id));
+    },[])
+
+    
+    const save = () => {
+        console.log('saved');
+        AdvertService.saveAdvert(params.advert.ad_id);
+        setSaved(true);
+    }
+    const unsave = () => {
+        console.log('saved');
+        AdvertService.removeSavedAdvert(params.advert.ad_id);
+        setSaved(false);
+    }
+
     return (
         <div>
            <div className="feed-content">
@@ -17,8 +37,8 @@ function FeedAdvert(params) {
                     </div>
                     </div>
                     <div className="short-advert-top-row-right">
-                        <Link to={`/advert/${params.advert.ad_id}`}><button>View more</button></Link>
-                        <button>Save</button>
+                        <Link to={`/advert/${params.advert.ad_id}`}><button className="pin-button">View more</button></Link>
+                        {saved ? <button onClick={unsave} className="unpin-button">Unpin</button> :<button onClick={save} className="pin-button">Pin</button>}
                     </div>
                 </div>
                 <hr/>

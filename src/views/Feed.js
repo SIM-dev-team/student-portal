@@ -1,6 +1,6 @@
 import React, {useState , useEffect} from 'react'
 import FeedAdvert from '../components/FeedAdvert'
-import axios from 'axios'
+import axios from 'axios';
 
 function Feed() {
 
@@ -41,8 +41,9 @@ function Feed() {
                     {filteredAdvertsList.map((advert) =>{
                         return(
                             <FeedAdvert key={advert.ad_id} advert={advert} />
+
                         );
-                    })}
+                    })} 
                 </div>
             </div>
         </React.Fragment>
