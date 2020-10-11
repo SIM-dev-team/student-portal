@@ -14,7 +14,6 @@ export class ViewModal extends Component{
 
     handleClick = id =>{
         this.setState({aid: id})
-
       } 
 
 
