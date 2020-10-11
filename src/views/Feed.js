@@ -17,10 +17,10 @@ function Feed() {
 
     useEffect(()=>{
         axios
-          .get("http://localhost:5000/advert/getAll")
+          .get("http://localhost:5000/advert/getAllApproved")
           .then(res => {
               console.log(res.data)
-            setAdvertList(res.data);
+              setAdvertList(res.data);
           })
           .catch(err => console.error(err));
     },[])
@@ -41,7 +41,6 @@ function Feed() {
                     {filteredAdvertsList.map((advert) =>{
                         return(
                             <FeedAdvert key={advert.ad_id} advert={advert} />
-
                         );
                     })} 
                 </div>
