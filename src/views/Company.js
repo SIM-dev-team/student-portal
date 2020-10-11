@@ -65,7 +65,7 @@ function Company({match}) {
 
     useEffect(()=>{
         axios
-          .get("http://localhost:5000/advert/getAdvertsByCompanyId/" + match.params.id)
+          .get("http://localhost:5000/advert/getApprovdAdvertsByCompanyId/" + match.params.id)
           .then(res => {
             //   console.log(res.data);
               setAdvertList(res.data);

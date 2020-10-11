@@ -115,14 +115,12 @@ function Advert({match}) {
                         axios
                         .post("http://localhost:5000/advert/getAppliedAdverts",{token : localStorage.getItem('StudentToken')})
                         .then(resp => {
-                        console.log(resp.data);
-                        AdvertService.saveAppliedAdverts(resp.data);
+                            console.log(resp.data);
+                            AdvertService.saveAppliedAdverts(resp.data);
                         })
-                        .catch(errp => console.error(errp))
-                        .finally(()=>{
-                        })
-                      setIsUploading(false);
-                      window.location.reload();
+                        .catch(errp => console.error(errp));
+                        setIsUploading(false);
+                        // window.location.reload();
                     })
                   .catch(err => console.error(err));
             })
