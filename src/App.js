@@ -30,12 +30,12 @@ function App() {
         <Switch>
         <div className="feed-row">
           <CategoryList/>
-            <Route exact path="/" component={Feed}/>
-            <Route exact path="/profile" component={Profile}/>
-            <Route exact path="/selectedAdverts" component={SelectedAdverts}/>
-            <Route exact path="/company/:id" component={Company}/>
-            <Route exact path="/category/:id" component={Category}/>
-            <Route exact path="/advert/:id" component={Advert}/>
+            <ProtectedRoute exact path="/" component={Feed}/>
+            <ProtectedRoute exact path="/profile" component={Profile}/>
+            <ProtectedRoute exact path="/selectedAdverts" component={SelectedAdverts}/>
+            <ProtectedRoute exact path="/company/:id" component={Company}/>
+            <ProtectedRoute exact path="/category/:id" component={Category}/>
+            <ProtectedRoute exact path="/advert/:id" component={Advert}/>
           <CompanyList/>
         </div>
         </Switch>

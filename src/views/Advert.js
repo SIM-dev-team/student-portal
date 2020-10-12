@@ -117,10 +117,10 @@ function Advert({match}) {
                         .then(resp => {
                             console.log(resp.data);
                             AdvertService.saveAppliedAdverts(resp.data);
+                            window.location.reload();
                         })
                         .catch(errp => console.error(errp));
                         setIsUploading(false);
-                        // window.location.reload();
                     })
                   .catch(err => console.error(err));
             })
