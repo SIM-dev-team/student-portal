@@ -645,7 +645,15 @@
     border-radius: 2px;
     padding: 0 20px;
 }
+.logout-model-buttons {
+    float: right;
+    padding: 10px;
+}
 
+.logout-model-buttons button {
+    margin: 0 10px;
+    width: 100px;
+}
 /*-------------------------------------notification page css---------------------------------------------------*/
 
 .notification-title {
@@ -723,4 +731,5 @@
 .notify-list {
     display: grid;
     padding-top: 30px;
+
 }
