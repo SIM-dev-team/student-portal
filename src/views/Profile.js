@@ -10,6 +10,7 @@ import axios from 'axios';
 import Model from 'react-modal';
 import { storage } from '../firebase';
 import auth from '../auth';
+import Notification from '../components/notification'
 // import Header from '../student_profile/studentheader'
 // import Saved from '../student_profile/saved'
 // import Mycv from '../student_profile/cv'
@@ -48,6 +49,7 @@ function Profile() {
     const [interested , setInterested] = useState(false);
     const [projects , setProjects] = useState(false);
     const [isEditProfileModelOpen , setIsEditProfileModelOpen] = useState(false);
+    const [isNotificationModelOpen , setIsNotificationModelOpen] = useState(false);
     const [isProject1ModelOpen , setIsProject1ModelOpen] = useState(false);
     const [isProject2ModelOpen , setIsProject2ModelOpen] = useState(false);
     const [isProject3ModelOpen , setIsProject3ModelOpen] = useState(false);
@@ -241,7 +243,7 @@ function Profile() {
                 <hr/>
                 <div className="profile-btns">
                     <Link to={`/selectedAdverts`}><button className="profile-btns-btn">Selected Adverts</button></Link>
-                    <button className="profile-btns-btn">Notifications</button>
+                    <button className="profile-btns-btn" onClick={()=>setIsNotificationModelOpen(true)}>Notifications</button>
                 </div>
                 <div className="profile-middle">
                 <div className="profile-header">Interested Areas</div>
@@ -314,7 +316,21 @@ function Profile() {
                 <small className="updating-text" hidden={!isUpdating}>Updating ...</small>
             </Model>
 
-
+            <Model isOpen={isNotificationModelOpen} style={editProfileModalStyles}>
+            <div className = "container">
+                <div className = "notification-title">Notifications</div>
+                <div className="profile-bottom-content">
+                        <div className="notify-list">
+                                <Notification/>
+                        </div>
+                </div>
+                <div className="editProfile-model-buttons ">
+                            <button className="btn btn-primary" onClick={()=>setIsNotificationModelOpen(false)}>Cancel</button>   
+                </div>   
+            </div>
+            
+            </Model>
+            
             <Model isOpen={isProject1ModelOpen} style={editProfileModalStyles}>
             <div className="edit-profile-title">Add new Project</div>
                 <Form>
